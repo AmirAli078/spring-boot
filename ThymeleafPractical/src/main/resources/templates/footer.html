@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>footer</title>
+</head>
+<body>
+	<footer th:fragment="footer1(title,subtitle)">
+		<div class="container">
+			<h1 th:text="${title}"></h1>
+			<h2 th:text="${subtitle}"></h2>
+			<h2>This is just used for footer details..</h2>
+			<h3>You can also provide dynamic values to footer by yourself</h3>
+		</div>
+	</footer>
+</body>
+</html>

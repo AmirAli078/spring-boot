@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Condition Handle in thymeleaf</title>
+</head>
+<body>
+<h1> here we will handle the condition according to our need or requirement</h1>
+
+<!-- elvis operator condition  -->
+<h1> User is <span th:style="${isActive} ? 'color:green' : 'color:red'"
+ th:text="${isActive} ? 'ACTIVE' : 'NOT ACTIVE'"></span>
+ 
+ <!-- if and unless operator example  -->
+ <h1 th:if="${gender}=='M'">Male</h1>
+ <h1 th:unless="${gender}=='M'">Female</h1>
+ 
+ <!-- here we will use switch case for more than one condition  -->
+  <div th:switch="${#lists.size(numbers)}">
+                <h1 th:case="'0'">List is Empty</h1>
+                 <h2 th:case="'1'">List contain 1 element</h2>
+                 <h3 th:case="*">List contains more than one element</h3>
+ </div>
+ </h1>
+</body>
+</html>

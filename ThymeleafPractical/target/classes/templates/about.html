@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>About page</title>
+</head>
+<body>
+<h1>we are learning Thymeleaf through springboot</h1>
+<h2>The name of Owner is <span th:text="${name}"></span> </h2>
+
+<h3>The current Date and Time is: <span th:text="${currentDate}"></span></h3>
+<h1 th:text="${ #strings.toUpperCase(name)}"></h1>
+<h2 th:text="${currentDate}"></h2>
+</body>
+</html>
