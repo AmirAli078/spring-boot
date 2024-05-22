@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 2s;
+        }
+
+        h3 a {
+            color: #28a745;
+            text-decoration: none;
+        }
+
+        h3 a:hover {
+            color: #218838;
+        }
+
+        .panel-body {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s;
+        }
+
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table th {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #d1ecf1;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Spring Boot CRUD System - Student Registration</h2>
+        <div align="left">
+            <h3><a th:href="@{'/new'}">Add new</a></h3>
+        </div>
+        <div class="col-sm-5" align="center">
+            <div class="panel-body" align="center">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Course</th>
+                            <th>Fee</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="student : ${liststudent}">
+                            <td th:text="${student.id}">Student ID</td>
+                            <td th:text="${student.studentname}">StudentName</td>
+                            <td th:text="${student.course}">Course</td>
+                            <td th:text="${student.fee}">Fee</td>
+                            <td>
+                                <a th:href="@{'/edit/' + ${student.id}}">Edit</a>
+                            </td>
+                            <td>
+                                <a th:href="@{'/delete/' + ${student.id}}">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
